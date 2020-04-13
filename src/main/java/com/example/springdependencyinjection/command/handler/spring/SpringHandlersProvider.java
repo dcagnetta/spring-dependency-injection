@@ -17,6 +17,7 @@ import java.util.Map;
 
 /**
  * Registers handlers for Spring and provides the required handler when needed
+ * https://stackoverflow.com/questions/47915493/spring-5-programmatically-register-generic-bean
  */
 @Component
 public class SpringHandlersProvider implements HandlersProvider, ApplicationListener<ContextRefreshedEvent> {
@@ -37,6 +38,10 @@ public class SpringHandlersProvider implements HandlersProvider, ApplicationList
         return handler;
     }
 
+    /**
+     * On either initializing or refreshing the ApplicationContext.
+     * Can get triggered multiple times as long as the context has not been closed.
+     * */
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         handlers.clear();
