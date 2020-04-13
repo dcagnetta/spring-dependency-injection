@@ -2,7 +2,7 @@ package com.example.springdependencyinjection.command.handler.spring;
 
 
 import com.example.springdependencyinjection.command.handler.CommandHandler;
-import com.example.springdependencyinjection.command.impl.RunEnvironment;
+import com.example.springdependencyinjection.command.HandlersProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -15,8 +15,11 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Registers handlers for Spring and provides the required handler when needed
+ */
 @Component
-public class SpringHandlersProvider implements RunEnvironment.HandlersProvider, ApplicationListener<ContextRefreshedEvent> {
+public class SpringHandlersProvider implements HandlersProvider, ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     private ConfigurableListableBeanFactory beanFactory;

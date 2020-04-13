@@ -12,7 +12,7 @@ public @interface Command {
 	/**
 	 * Suggestion for a Server that this command may be run in asynchronous way.
 	 * <br>
-	 * If true than {@link CommandHandler} must return void - otherwise Serwer will throw an exception 
+	 * If true than {@link CommandHandler} must return void - otherwise Server will throw an exception
 	 * @return
 	 */
     boolean asynchronous() default false;

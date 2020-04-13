@@ -18,20 +18,17 @@
  */
 package com.example.springdependencyinjection.command.impl;
 
+import com.example.springdependencyinjection.command.HandlersProvider;
 import com.example.springdependencyinjection.command.handler.CommandHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
 /**
- * @author Slawek
+ * @author Dillan
  */
 @Component
 public class RunEnvironment {
-
-    public interface HandlersProvider {
-        CommandHandler<Object, Object> getHandler(Object command);
-    }
 
     @Resource
     private HandlersProvider handlersProvider;

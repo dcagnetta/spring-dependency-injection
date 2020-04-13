@@ -22,12 +22,11 @@ import com.example.springdependencyinjection.annotations.Command;
 
 /**
  * 
- * @author Slawek
+ * @author Dillan
  *
- * @param <C> command
- * @param <R> result type - for asynchronous {@link Command}commands (asynchronous=true) should be {@link Void}
+ * @param <TCommand> command
+ * @param <TResult> result type - for asynchronous {@link Command}commands (asynchronous=true) should be {@link Void}
  */
-public interface CommandHandler<C, R> {
-
-    public R handle(C command);
+public interface CommandHandler<TCommand, TResult> {
+    public TResult handle(TCommand command);
 }
