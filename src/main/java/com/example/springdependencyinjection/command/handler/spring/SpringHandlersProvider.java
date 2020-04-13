@@ -57,15 +57,27 @@ public class SpringHandlersProvider implements HandlersProvider, ApplicationList
         }
     }
 
+    /**
+     * Returns e.g.
+     *
+     *  TestCommand from CommandHandler<TestCommand, Void>
+     **/
     private Class<?> getHandledCommandType(Class<?> clazz) {
         Type[] genericInterfaces = clazz.getGenericInterfaces();
         ParameterizedType type = findByRawType(genericInterfaces, CommandHandler.class);
-        return (Class<?>) type.getActualTypeArguments()[0];
+        return (Class<?>) type.getActualTypeArguments()[0]; // the TCommand
     }
 
+    /**
+     * Returns e.g.
+     *
+     *   <p> CommandHandler<TestCommand, Void> </p>
+     *
+     *   which is the raw type i.e. implemented interface
+     **/
     private ParameterizedType findByRawType(Type[] genericInterfaces, Class<?> expectedRawType) {
         for (Type type : genericInterfaces) {
-            if (type instanceof ParameterizedType) {
+            if (type instanceof ParameterizedType) { // GenericType in C#
                 ParameterizedType parametrized = (ParameterizedType) type;
                 if (expectedRawType.equals(parametrized.getRawType())) {
                     return parametrized;
