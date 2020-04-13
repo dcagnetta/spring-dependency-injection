@@ -8,9 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CommandDispatcher implements Dispatcher {
-	
-	@Autowired
+
 	private RunEnvironment runEnvironment;
+
+	@Autowired
+	public CommandDispatcher(RunEnvironment runEnvironment) {
+		this.runEnvironment = runEnvironment;
+	}
 
 	@Override
 	public Object dispatch(Object command){

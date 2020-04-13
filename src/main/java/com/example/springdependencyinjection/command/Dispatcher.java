@@ -23,7 +23,7 @@ package com.example.springdependencyinjection.command;
  * <li>command queues for asynchronous commands 
  * </ul>
  * 
- * @author Slawek
+ * @author Dillan
  *
  */
 public interface Dispatcher {
